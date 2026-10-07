@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Expense Tracker</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fb;
+            color: #1f2937;
+        }
+
+        .main {
+            width: 90%;
+            margin: 40px auto;
+        }
+
+        /* Heading */
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-top: 0;
+        }
+
+        .month {
+            background-color: white;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+
+        /* Cards */
+
+        .cards {
+            display: flex;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background-color: white;
+            width: 33.33%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+        }
+
+        .card h4 {
+            color: #777;
+            margin-top: 0;
+        }
+
+        .amount {
+            font-size: 25px;
+            font-weight: bold;
+            color: #3568b8;
+        }
+
+        .card p {
+            color: #888;
+        }
+
+
+        /* Bottom */
+
+        .bottom {
+            display: flex;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .expense,
+        .recent {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .expense {
+            width: 35%;
+        }
+
+        .recent {
+            width: 65%;
+        }
+
+        .expense h2,
+        .recent h2 {
+            margin-top: 0;
+        }
+
+        .expense p,
+        .recent p {
+            color: #777;
+        }
+
+
+        /* Categories */
+
+        .category {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .category-name {
+            font-weight: bold;
+        }
+
+        .category-small {
+            color: #888;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .category-price {
+            font-weight: bold;
+        }
+
+
+        /* Total */
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 20px;
+            font-weight: bold;
+        }
+
+        .total-price {
+            color: #3568b8;
+            font-size: 18px;
+        }
+
+
+        /* Transactions */
+
+        .transaction {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+
+        .transaction-name {
+            font-weight: bold;
+        }
+
+        .date {
+            color: #888;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .transaction-right {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .category-tag {
+            color: #888;
+            font-size: 13px;
+            background-color: #f5f7fb;
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+
+
+        /* Footer */
+
+        footer {
+            margin-top: 25px;
+            color: #888;
+            font-size: 13px;
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 800px) {
+
+            .cards,
+            .bottom {
+                flex-direction: column;
+            }
+
+            .card,
+            .expense,
+            .recent {
+                width: 100%;
+            }
+
+            .top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="main">
+
+
+        <!-- Heading -->
+
+        <div class="top">
+
+            <div>
+
+                <h1>My Expense Tracker</h1>
+
+                <p class="subtitle">
+                    Track your monthly spending
+                </p>
+
+            </div>
+
+            <div class="month">
+                📅 October 2026
+            </div>
+
+        </div>
+
+
+
+        <!-- Three Cards -->
+
+        <div class="cards">
+
+
+            <!-- Total Spent -->
+
+            <div class="card">
+
+                <h4>Total Spent</h4>
+
+                <div class="amount">
+                    ₹12,270
+                </div>
+
+                <p>
+                    Across 4 expense categories
+                </p>
+
+            </div>
+
+
+
+            <!-- Highest Category -->
+
+            <div class="card">
+
+                <h4>Highest Category</h4>
+
+                <div class="amount">
+                    Food
+                </div>
+
+                <p>
+                    ₹5,280 - 43% of total spending
+                </p>
+
+            </div>
+
+
+
+            <!-- Current Month -->
+
+            <div class="card">
+
+                <h4>Current Month</h4>
+
+                <div class="amount">
+                    October 2026
+                </div>
+
+                <p>
+                    Your monthly spending overview
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Bottom Section -->
+
+        <div class="bottom">
+
+
+            <!-- Expense Categories -->
+
+            <div class="expense">
+
+                <h2>
+                    Expense Categories
+                </h2>
+
+                <p>
+                    A simple breakdown of where your money goes.
+                </p>
+
+
+
+                <!-- Food -->
+
+                <div class="category">
+
+                    <div>
+
+                        <div class="category-name">
+                            🍴 Food
+                        </div>
+
+                        <div class="category-small">
+                            Groceries & dining
+                        </div>
+
+                    </div>
+
+                    <div class="category-price">
+                        ₹5,280
+                    </div>
+
+                </div>
+
+
+
+                <!-- Transport -->
+
+                <div class="category">
+
+                    <div>
+
+                        <div class="category-name">
+                            🚌 Transport
+                        </div>
+
+                        <div class="category-small">
+                            Commutes & travel
+                        </div>
+
+                    </div>
+
+                    <div class="category-price">
+                        ₹2,100
+                    </div>
+
+                </div>
+
+
+
+                <!-- Shopping -->
+
+                <div class="category">
+
+                    <div>
+
+                        <div class="category-name">
+                            🛍️ Shopping
+                        </div>
+
+                        <div class="category-small">
+                            Everyday purchases
+                        </div>
+
+                    </div>
+
+                    <div class="category-price">
+                        ₹3,600
+                    </div>
+
+                </div>
+
+
+
+                <!-- Entertainment -->
+
+                <div class="category">
+
+                    <div>
+
+                        <div class="category-name">
+                            🎬 Entertainment
+                        </div>
+
+                        <div class="category-small">
+                            Movies & leisure
+                        </div>
+
+                    </div>
+
+                    <div class="category-price">
+                        ₹1,290
+                    </div>
+
+                </div>
+
+
+
+                <!-- Total -->
+
+                <div class="total">
+
+                    <span>
+                        Total this month
+                    </span>
+
+                    <span class="total-price">
+                        ₹12,270
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Recent Transactions -->
+
+            <div class="recent">
+
+                <h2>
+                    Recent Transactions
+                </h2>
+
+                <p>
+                    Your latest expenses, all in one place.
+                </p>
+
+
+
+                <!-- Transaction 1 -->
+
+                <div class="transaction">
+
+                    <div>
+
+                        <div class="transaction-name">
+                            🛒 Weekly groceries
+                        </div>
+
+                        <div class="date">
+                            06 Oct 2026
+                        </div>
+
+                    </div>
+
+                    <div class="transaction-right">
+
+                        <div class="category-tag">
+                            Food
+                        </div>
+
+                        <div class="price">
+                            ₹1,250
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Transaction 2 -->
+
+                <div class="transaction">
+
+                    <div>
+
+                        <div class="transaction-name">
+                            👟 New shoes
+                        </div>
+
+                        <div class="date">
+                            05 Oct 2026
+                        </div>
+
+                    </div>
+
+                    <div class="transaction-right">
+
+                        <div class="category-tag">
+                            Shopping
+                        </div>
+
+                        <div class="price">
+                            ₹2,400
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Transaction 3 -->
+
+                <div class="transaction">
+
+                    <div>
+
+                        <div class="transaction-name">
+                            🚌 Monthly bus pass
+                        </div>
+
+                        <div class="date">
+                            04 Oct 2026
+                        </div>
+
+                    </div>
+
+                    <div class="transaction-right">
+
+                        <div class="category-tag">
+                            Transport
+                        </div>
+
+                        <div class="price">
+                            ₹1,500
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Transaction 4 -->
+
+                <div class="transaction">
+
+                    <div>
+
+                        <div class="transaction-name">
+                            🎬 Movie night
+                        </div>
+
+                        <div class="date">
+                            03 Oct 2026
+                        </div>
+
+                    </div>
+
+                    <div class="transaction-right">
+
+                        <div class="category-tag">
+                            Entertainment
+                        </div>
+
+                        <div class="price">
+                            ₹600
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Transaction 5 -->
+
+                <div class="transaction">
+
+                    <div>
+
+                        <div class="transaction-name">
+                            🍴 Dinner with friends
+                        </div>
+
+                        <div class="date">
+                            02 Oct 2026
+                        </div>
+
+                    </div>
+
+                    <div class="transaction-right">
+
+                        <div class="category-tag">
+                            Food
+                        </div>
+
+                        <div class="price">
+                            ₹850
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <footer>
+            A little clarity for your everyday spending.
+        </footer>
+
+
+    </div>
+
+
+</body>
+
+</html>
